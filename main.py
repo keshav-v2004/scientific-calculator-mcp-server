@@ -1,12 +1,9 @@
 from fastmcp import FastMCP
-import random
-
-import json
 
 mcp = FastMCP("simple calculator server")
 
 @mcp.tool
-def add(a: int, b: int) -> int:
+async def add(a: int, b: int) -> int:
     """
     Add two numbers together.
 
@@ -21,7 +18,7 @@ def add(a: int, b: int) -> int:
     return a + b
 
 @mcp.tool
-def subtract(a: int, b: int) -> int:
+async def subtract(a: int, b: int) -> int:
     """
     Subtract one number from another.
 
@@ -36,7 +33,7 @@ def subtract(a: int, b: int) -> int:
     return a - b
 
 @mcp.tool
-def multiply(a: int, b: int) -> int:
+async def multiply(a: int, b: int) -> int:
     """
     Multiply two numbers together.
 
@@ -51,7 +48,7 @@ def multiply(a: int, b: int) -> int:
     return a * b
 
 @mcp.tool
-def divide(a: int, b: int) -> int:
+async def divide(a: int, b: int) -> int:
     """
     Divide one number by another.
 
@@ -67,7 +64,7 @@ def divide(a: int, b: int) -> int:
         raise ValueError("Cannot divide by zero.")
     return a // b
 
-if __name__ =='__main__':
-    mcp.run(transport='http' , host = '0.0.0.0' , port = 8000)
+if __name__ == '__main__':
+    mcp.run(transport='http', host='0.0.0.0', port=8000)
 
 
