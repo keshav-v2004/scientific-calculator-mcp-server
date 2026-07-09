@@ -1,5 +1,5 @@
 from fastmcp import FastMCP
-
+import math
 mcp = FastMCP("simple calculator server")
 
 @mcp.tool
@@ -63,6 +63,26 @@ async def divide(a: int, b: int) -> int:
     if b == 0:
         raise ValueError("Cannot divide by zero.")
     return a // b
+
+@mcp.tool
+async def power(base: float, exponent: float) -> float:
+    """Raise a base number to an exponent."""
+    return math.pow(base, exponent)
+
+@mcp.tool
+async def square_root(x: float) -> float:
+    """Calculate the square root of a positive number."""
+    if x < 0:
+        raise ValueError("Cannot calculate the square root of a negative number.")
+    return math.sqrt(x)
+
+@mcp.tool
+async def modulo(a: float, b: float) -> float:
+    """Calculate the remainder of division (a % b)."""
+    if b == 0:
+        raise ValueError("Cannot divide by zero.")
+    return a % b
+
 
 if __name__ == '__main__':
     mcp.run(transport='http', host='0.0.0.0', port=8000)
