@@ -21,6 +21,11 @@ The server exposes a collection of mathematical tools through the MCP protocol, 
 - Server Sent Events (SSE) transport
 - Deployable on Render
 
+<p align="center">
+  <img src="image.png" alt="Available MCP Tools" width="700"/>
+</p>
+
+
 ---
 
 # Live Endpoint
